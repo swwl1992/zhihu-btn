@@ -96,8 +96,6 @@
 	    background-size: 100% 100%;
 	    background-repeat: no-repeat
 	}
-	
-	
 	.zh-count:after {
 	    top: 50%;
 	    left: -4px;
@@ -137,16 +135,16 @@
 	}
 	</style>
 	<span class="zhihu-btn zhihu-btn-large" id="container" style="display:none">
-		<a class="zh-btn" id="zh-btn">
+		<a class="zh-btn" id="zh-btn" target="_blank">
 			<span class="zh-ico" id="zh-ico"></span> 
 			<span class="zh-text" id="zh-text"></span>
 		</a>
-		<a class="zh-count" id="zh-count"></a>
+		<a class="zh-count" id="zh-count" target="_blank"></a>
 	</span>
 	<script>
 		var params = (function() {
 			var vars = [],
-				hash;
+				hash = [];
 			var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
 			for (var i = 0; i < hashes.length; i++) {
 				hash = hashes[i].split('=');
