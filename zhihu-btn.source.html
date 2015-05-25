@@ -136,7 +136,7 @@
 	    border-width: 7px 7px 7px 0
 	}
 	</style>
-	<span class="zhihu-btn zhihu-btn-large" id="zhihu-btn">
+	<span class="zhihu-btn zhihu-btn-large" id="container" style="display:none">
 		<a class="zh-btn" id="zh-btn">
 			<span class="zh-ico" id="zh-ico"></span> 
 			<span class="zh-text" id="zh-text"></span>
@@ -144,7 +144,7 @@
 		<a class="zh-count" id="zh-count"></a>
 	</span>
 	<script>
-		 var params = (function() {
+		var params = (function() {
 			var vars = [],
 				hash;
 			var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
@@ -155,7 +155,9 @@
 			}
 			return vars;
 		}());
-		var counter = document.getElementById('zh-count'),
+		
+		var container = document.getElementById('container')
+			counter = document.getElementById('zh-count'),
 			btn = document.getElementById('zh-btn'),
 			ico = document.getElementById('zh-ico'),
 			btn_text = document.getElementById('zh-text'),
@@ -168,15 +170,34 @@
 			head.insertBefore(el, head.firstChild);
 		}
 		
-		function callback(obj) {
-			counter.innerHTML = obj.followers;
-			btn_text.innerHTML = obj.name;
-			btn.href = obj.url;
-			ico.style.backgroundImage = "url('" + obj.avatar_url + "')";
-			counter.href = obj.url;
+		function hideContainer() {
+			container.style.display = 'none';
 		}
 		
-		jsonp('http://apps.wanwenli.com/zhihu-api/users/' + user);
+		function showContainer() {
+			container.style.display = '';
+		}
+		
+		function callback(obj) {
+			if (obj.message) {
+				// user is not found
+				hideContainer();
+			} else {
+				counter.innerHTML = obj.followers;
+				btn_text.innerHTML = obj.name;
+				btn.href = obj.url;
+				ico.style.backgroundImage = "url('" + obj.avatar_url + "')";
+				counter.href = obj.url;
+				showContainer();
+			}
+		}
+		
+		if (typeof user != 'undefined') {
+			jsonp('http://apps.wanwenli.com/zhihu-api/users/' + user);
+		} else {
+			// hide button if user is not defined in URL
+			hideContainer();
+		}
 	</script>
 </body>
 </html>
