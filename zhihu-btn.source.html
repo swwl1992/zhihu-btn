@@ -176,12 +176,16 @@
 			container.style.display = '';
 		}
 		
+		 function addCommas(n) {
+			return String(n).replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+		}
+		
 		function callback(obj) {
 			if (obj.message) {
 				// user is not found
 				hideContainer();
 			} else {
-				counter.innerHTML = obj.followers;
+				counter.innerHTML = addCommas(obj.followers);
 				btn_text.innerHTML = obj.name;
 				btn.href = obj.url;
 				ico.style.backgroundImage = "url('" + obj.avatar_url + "')";
