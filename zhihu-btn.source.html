@@ -16,6 +16,7 @@
 	    overflow: hidden
 	}
 	.zh-btn,
+	.zh-ico,
 	.zh-count{
 	    float: left
 	}
@@ -87,6 +88,15 @@
 	    border-width: 4px 4px 4px 0;
 	    border-right-color: #fafafa
 	}
+	.zh-ico {
+	    width: 14px;
+	    height: 14px;
+	    margin-right: 4px;
+	    background-size: 100% 100%;
+	    background-repeat: no-repeat
+	}
+	
+	
 	.zh-count:after {
 	    top: 50%;
 	    left: -4px;
@@ -105,7 +115,10 @@
 	    line-height: 22px;
 	    border-radius: 4px
 	}
-	
+	.zhihu-btn-large .zh-ico {
+	    width: 20px;
+	    height: 20px
+	}
 	.zhihu-btn-large .zh-count {
 	    margin-left: 6px
 	}
@@ -121,8 +134,11 @@
 	}
 	</style>
 	<span class="zhihu-btn zhihu-btn-large" id="zhihu-btn">
-		<a class="zh-btn" id="zh-btn"></a>
-		<a class="zh-count" id="zh-count" href="#"></a>
+		<a class="zh-btn" id="zh-btn">
+			<span class="zh-ico"></span> 
+			<span class="zh-text" id="zh-text"></span>
+		</a>
+		<a class="zh-count" id="zh-count"></a>
 	</span>
 	<script>
 		 var params = (function() {
@@ -138,6 +154,8 @@
 		}());
 		var counter = document.getElementById('zh-count'),
 			btn = document.getElementById('zh-btn'),
+			ico = document.getElementById('zh-ico'),
+			btn_text = document.getElementById('zh-text'),
 			head = document.getElementsByTagName('head')[0],
 			user = params.user;
 
@@ -149,9 +167,11 @@
 		
 		function callback(obj) {
 			counter.innerHTML = obj.followers;
-			btn.innerHTML = obj.name;
+			btn_text.innerHTML = obj.name;
 			btn.href = obj.url;
-			btn.style.display = 'block';
+			ico.style.backgroundImage = "url('" + obj.avatar_url + "')";
+			// btn.style.display = 'block';
+			zh-count.href = obj.url;
 		}
 		
 		jsonp('http://apps.wanwenli.com/zhihu-api/users/' + user);
