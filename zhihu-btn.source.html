@@ -9,6 +9,7 @@
 	    margin: 0;
 	    font: 700 11px/14px "Helvetica Neue", Helvetica, Arial, sans-serif;
 	    overflow: hidden
+	    -webkit-font-smoothing: subpixel-antialiased;
 	}
 	.zhihu-btn {
 	    height: 20px;
@@ -29,27 +30,33 @@
 	    border-radius: 3px
 	}
 	.zh-btn {
-	    background-color: #eee;
-	    background-image: -moz-linear-gradient(#fcfcfc, #eee);
-	    background-image: -webkit-linear-gradient(#fcfcfc, #eee);
-	    background-image: linear-gradient(#fcfcfc, #eee);
-	    background-repeat: no-repeat;
-	    border: 1px solid #d5d5d5
-	}
-	.zh-btn:focus,
-	.zh-btn:hover {
-	    text-decoration: none;
-	    background-color: #ddd;
-	    background-image: -moz-linear-gradient(#eee, #ddd);
-	    background-image: -webkit-linear-gradient(#eee, #ddd);
-	    background-image: linear-gradient(#eee, #ddd);
-	    border-color: #ccc
+	  background: #0d77e4;
+	  background-color: #0e78e7;
+	  background-image: -moz-linear-gradient(top,#0e7bef,#0d73da);
+	  background-image: -ms-linear-gradient(top,#0e7bef,#0d73da);
+	  background-image: -webkit-gradient(linear,0 0,0 100%,from(#0e7bef),to(#0d73da));
+	  background-image: -webkit-linear-gradient(top,#0e7bef,#0d73da);
+	  background-image: -o-linear-gradient(top,#0e7bef,#0d73da);
+	  background-image: linear-gradient(top,#0e7bef,#0d73da);
+	  background-repeat: repeat-x;
+	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0e7bef', endColorstr='#0d73da', GradientType=0);
+	  color: #FFF;
+	  text-align: center;
+	  text-shadow: 0 1px 1px rgba(0,0,0,.12);
+	  cursor: pointer;
+	  border: 1px solid #045BB2;
+	  border-radius: 4px;
+	  box-shadow: 0 1px 2px rgba(0,0,0,.05),inset 0 1px 1px rgba(255,255,255,.15);
+	  -webkit-transition: all .2s ease-in-out;
+	  transition: all .2s ease-in-out;
+	  outline: 0;
 	}
 	.zh-btn:active {
-	    background-image: none;
-	    background-color: #dcdcdc;
-	    border-color: #b5b5b5;
-	    box-shadow: inset 0 2px 4px rgba(0, 0, 0, .15)
+	  background: #096ED5;
+	  background: -webkit-gradient(linear,left top,left bottom,from(#0e7ceb),to(#0c6fd3));
+	  background: -moz-linear-gradient(top,#0e7ceb,#0c6fd3);
+	  border: 1px solid #0659AC;
+	  box-shadow: 0 1px 0 rgba(255,255,255,.06),inset 0 1px 2px rgba(0,0,0,.2);
 	}
 	
 	.zh-count {
@@ -113,7 +120,7 @@
 	    border-width: 7px 7px 7px 0
 	}
 	</style>
-	<span class="zhihu-btn" id="zhihu-btn">
+	<span class="zhihu-btn zhihu-btn-large" id="zhihu-btn">
 		<a class="zh-btn" id="zh-btn"></a>
 		<a class="zh-count" id="zh-count" href="#"></a>
 	</span>
