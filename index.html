@@ -1,0 +1,41 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Zhihu Button</title>
+	<link href="css/materialize.min.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col l6 offset-l3 s12">
+				<div class="align-center">
+					<h3 class="center-align">Zhihu Button</h3>
+					<div id="wizard">
+						<input type="text" id="user-id" placeholder="Type your user ID here"/>
+					</div>
+					
+					<div>
+						<input type="checkbox" id="large-btn" />
+						<label for="large-btn">Large button</label>
+					</div>
+					
+					<div>
+						<textarea id="source-preview"></textarea>
+					</div>
+					
+					<div>
+						<button id="preview" class="btn waves-effect waves-light" type="button">Preview
+							<i class="mdi-content-send right"></i>
+						</button>
+					</div>
+					
+					<iframe id="btn-preview" frameborder="0"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="js/wizard.js"></script>
+</body>
+</html>
