@@ -1,8 +1,3 @@
-body{
-	font-family: 'Noto Sans', sans-serif;
-}
-#title{
-}
 /* label color */
 .input-field label {
 	color: #1565C0;
@@ -45,10 +40,6 @@ body{
 .input-field textarea.materialize-textarea[type=text].invalid {
 	border-bottom: 1px solid #1565C0;
 	box-shadow: 0 1px 0 0 #1565C0;
-}
-
-#preview-box table{
-	
 }
 
 #preview, #btn-preview{
