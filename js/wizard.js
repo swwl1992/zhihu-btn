@@ -1,4 +1,4 @@
-// (function($) {
+(function($) {
 	var userIdInput = $('#user-id');
 	var largeBtnCheck = $('#large-btn');
 	var btnPreview = $('#btn-preview');
@@ -20,7 +20,7 @@
 			"description" : "简体中文",
 			"nav-title" : "知乎按钮",
 			"user-id-lbl" : "用户名",
-			"large-btn-lbl" : "大号",
+			"large-btn-lbl" : "大号按钮",
 			"source-preview-lbl" : "源代码预览",
 			"preview" : "真实效果预览",
 			"empty-uid-msg" : "用户名不能为空"
@@ -37,13 +37,10 @@
 
 		// dropdown select logic
 		$('#lang-dropdown a').click(function() {
-			var lang = $(this).html();
-			if (lang === 'English') {
-				changeLang('eng');
-			} else {
-				changeLang('chn');
-			}
-			langDropdownBtn.html(lang);
+			var langCd = $(this).data('langcd');
+			changeLang(langCd);
+			langDropdownBtn.html($(this).html());
+			langDropdownBtn.data('langcd', langCd);
 		});
 	});
 
@@ -75,6 +72,7 @@
 
 	function makeBtnPreview() {
 		if (userIdInput.val().trim() === '') {
+			alert(getCaption('empty-uid-msg'));
 			return;
 		}
 		btnPreview.attr('src', makeSrc());
@@ -90,4 +88,10 @@
 			}
 		}
 	}
-// })(jQuery);
+	
+	function getCaption(id) {
+		var langCd = langDropdownBtn.data('langcd');
+		var captionList = captions[langCd];
+		return captionList[id];
+	}
+})(jQuery);
