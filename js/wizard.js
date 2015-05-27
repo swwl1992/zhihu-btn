@@ -40,7 +40,6 @@
 			var langCd = $(this).data('langcd');
 			changeLang(langCd);
 			langDropdownBtn.html($(this).html());
-			langDropdownBtn.data('langcd', langCd);
 		});
 	});
 
@@ -80,18 +79,19 @@
 	
 	function changeLang(langCd) {
 		if (langCd in captions) {
-			var captionList = captions[langCd];
-			for (var id in captionList) {
+			var captionMap = captions[langCd];
+			for (var id in captionMap) {
 				var selector = '#' + id;
-				var html = captionList[id];
+				var html = captionMap[id];
 				$(selector).html(html);
 			}
+			langDropdownBtn.data('langcd', langCd);
 		}
 	}
 	
 	function getCaption(id) {
 		var langCd = langDropdownBtn.data('langcd');
-		var captionList = captions[langCd];
-		return captionList[id];
+		var captionMap = captions[langCd];
+		return captionMap[id];
 	}
 })(jQuery);
