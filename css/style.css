@@ -9,6 +9,7 @@ body{
 #title h3{
 	position: absolute;
 	bottom: 35px; 
+	text-shadow: 1px 2px 6px #0d47a1;
 }
 /* label color */
 .input-field label {
