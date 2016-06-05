@@ -5,7 +5,7 @@
 	var previewBtn = $('#preview');
 	var sourcePreview = $('#source-preview');
 	var langDropdownBtn = $('#lang-dropdown-btn');
-	var defaultUid = 'endurance';
+	var defaultUid = 'wang-xue-11-60';
 	var captions = {
 		"eng" : {
 			"description" : "English",
@@ -76,7 +76,7 @@
 		}
 		btnPreview.attr('src', makeSrc());
 	}
-	
+
 	function changeLang(langCd) {
 		if (langCd in captions) {
 			var captionMap = captions[langCd];
@@ -88,7 +88,7 @@
 			langDropdownBtn.data('langcd', langCd);
 		}
 	}
-	
+
 	function getCaption(id) {
 		var langCd = langDropdownBtn.data('langcd');
 		var captionMap = captions[langCd];
